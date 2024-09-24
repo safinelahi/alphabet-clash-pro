@@ -17,7 +17,9 @@ document.addEventListener('keyup', function(event){
     // console.log( 'player pressed', playerPressed)
  
      // stop the game if pressed 'Esc'
-     
+     if(playerPressed === 'Escape'){
+        gameOver()
+     }
  
      // key player is expected to press
      const currentAlphabetElement = document.getElementById('current-alphabet');
@@ -106,4 +108,12 @@ function gameOver(){
     showElementById('final-score');
     // update final score
     // 1.get the final score
+    const lastScore = getTextElementValueById('current-score')
+    //console.log(lastScore)
+    setTextElementValueById('last-score', lastScore)
+
+    // clear last value background color
+    const currentAlphabet = getElementTextById('current-alphabet')
+    //console.log(alphabet)
+    removeKeyboardBgColor(currentAlphabet)
 }
